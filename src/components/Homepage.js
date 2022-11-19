@@ -3,6 +3,7 @@ import ButtonGroup from './ButtonGroup'
 import Seach from './Seach'
 import {getData} from '../Api/index'
 import CardContainer from './CardContainer'
+import Pagination from './Pagination'
 
 const Homepage = () => {
   const [searchQuery,setSearchQuery]=useState("");
@@ -12,9 +13,26 @@ const Homepage = () => {
   const [errorMessage,setErrorMessage]=useState("");
   const [loading,setLoading]=useState(false);
 
+  const [currentPage,setCurrentPage]=useState(1);
+  const postsPerPage=6
+  let indexOfLastPost=currentPage*postsPerPage;
+  let indexOfFirstPost=indexOfLastPost-postsPerPage;
+
+  const handleBtnClick=(tag)=>{
+    if(tag===selectedTag)
+    return ;
+    setSelectedTag(tag);
+    setSearchQuery("");
+    setCurrentPage(1);
+  }
+
+  const handlePagination=(num)=>{
+    setCurrentPage(num);
+  }
 
   useEffect(()=>{
     setLoading(true);
+  
     getData().then(response=>{
       setData(response.data)
       setDisplayData(response.data)
@@ -28,27 +46,30 @@ const Homepage = () => {
 
 
   useEffect(()=>{
-    let temp;
-    if(selectedTag==="resources"){
-      setDisplayData(data);
-      setSearchQuery("")
-    }else if(selectedTag==="request"){
-      temp=data.filter(item=>item.tag==="request")
-      setDisplayData(temp)
-      setSearchQuery("")
-    }else{
-      temp=data.filter(item=>item.tag==="user")
-      setDisplayData(temp)
-      setSearchQuery("")
-    }
-  },[selectedTag])
+    let temp=data;
+
+    temp=temp.filter(item=>{
+      if(selectedTag==="resources")
+      return item
+      else{
+        if(selectedTag===item.tag)
+        return item;
+      }
+    }).filter(item=>item.title.toLowerCase().includes(searchQuery.toLowerCase()))
+
+    setDisplayData(temp);
+
+  },[selectedTag,searchQuery])
+
+  
 
 
   return (
     <div className="outer-container">
-        <ButtonGroup selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
+        <ButtonGroup selectedTag={selectedTag} handleBtnClick={handleBtnClick} />
         <Seach searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-        <CardContainer searchQuery={searchQuery} data={displayData}/>
+        <CardContainer data={displayData} indexOfLastPost={indexOfLastPost} indexOfFirstPost={indexOfFirstPost}/>
+        <Pagination  totalPosts={displayData.length} handlePagination={handlePagination} currentPage={currentPage}/>
     </div>
   )
 }

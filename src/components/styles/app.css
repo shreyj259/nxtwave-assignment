@@ -76,7 +76,7 @@ body{
 }
 
 
-button.active-btn{
+button.active-btn, button.active-page{
     background-color: #0B69FF;
     color: #ffffff;
 }
@@ -84,6 +84,24 @@ button.active-btn{
 button.active-btn:hover{
     cursor: not-allowed;
 }
+
+.pagintaion-container{
+    margin: 20px 0;
+}
+
+.pagination-item{
+    font-size: 16px;
+    padding: 5px 15px;
+    background-color: #ffffff;
+    border:1px solid #D7DFE9;
+    color: #171F46;
+    border-radius: 2px;
+}
+
+button.pagination-item:hover{
+    cursor: pointer;
+}
+
 
 
 
