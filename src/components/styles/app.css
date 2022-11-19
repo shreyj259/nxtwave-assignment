@@ -1,0 +1,103 @@
+@import url('https://fonts.cdnfonts.com/css/hk-groteks');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'HK Grotesk', sans-serif;
+}
+
+body{
+    background-color: #FBFBFB;
+}
+
+.flex-container{
+    display: flex;
+}
+
+.outer-container{
+    width: 100%;
+    max-width: 1144px;
+    margin: 0 auto;
+}
+
+.btn-group{
+    width: max-content;
+    margin: 32px auto;
+}
+
+.btn-group button{
+    width: 200px;
+    height: 40px;
+    border: 1px solid #D7DFE9;
+    color: #171F46;
+    font-weight: 600;
+}
+
+
+.btn-group button:hover{
+    cursor: pointer;
+}
+
+
+.search-container{
+    height: 40px;
+    max-width: 650px;
+    width: 90%;
+    background-color: #ffffff;
+    border:1px solid #D7DFE9;
+}
+
+.input-container input{
+    padding: 8px ;
+    border: none;
+}
+
+.icon-container{
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+}
+
+.icon-container img{
+    width: 12px;
+    height: 12px;
+}
+
+.input-container{
+    width: 100%;
+}
+
+.input-container input{
+    width: 100%;
+    max-width: 600px;
+    outline: none;
+    height: 100%;
+}
+
+
+button.active-btn{
+    background-color: #0B69FF;
+    color: #ffffff;
+}
+
+button.active-btn:hover{
+    cursor: not-allowed;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .btn-group button{
+        width: 120px;
+    }
+    .search-container{
+        max-width: 360px;
+        margin: 0 auto;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .btn-group button{
+        width: 100px;
+    }
+  }

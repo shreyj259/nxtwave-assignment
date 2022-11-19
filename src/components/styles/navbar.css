@@ -1,0 +1,29 @@
+.navbar{
+    justify-content: space-between;
+    padding: 16px 40px 16px;
+    border-bottom: 1px solid #D7DFE9;
+    background-color: #ffffff;
+}
+
+.avatar-container{
+    align-items: center;
+}
+
+.avatar-container img{
+    width: 40px;
+    margin-left: 32px;
+}
+
+.avatar-container a{
+    background-color: #2DCA73;
+    color: white;
+    padding: 8px 20px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    text-decoration: none;
+}
+
