@@ -73,6 +73,7 @@ const Homepage = () => {
           handleBtnClick={handleBtnClick}
         />
         <Seach searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+       
         {loading ? (
           <Loader />
         ) : (
@@ -82,11 +83,13 @@ const Homepage = () => {
             indexOfFirstPost={indexOfFirstPost}
           />
         )}
+
         <Pagination
           totalPosts={displayData.length}
           handlePagination={handlePagination}
           currentPage={currentPage}
         />
+        
          <ToastContainer 
          position="bottom-center"
          autoClose={5000}
