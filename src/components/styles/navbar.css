@@ -14,7 +14,7 @@
     margin-left: 32px;
 }
 
-.avatar-container a{
+.navbar a{
     background-color: #2DCA73;
     color: white;
     padding: 8px 20px;
@@ -27,3 +27,38 @@
     text-decoration: none;
 }
 
+.mobile-btn{
+    display: none;
+}
+
+
+
+@media screen and (max-width: 450px) {
+    .mobile-btn{
+        display: block;
+        width: 35px;
+        height: 35px;
+    }
+    .avatar-container{
+        display: none !important;
+    }
+    .mobile-avatar-container{
+        width: 150px;
+        padding: 20px;
+        background-color: #ffffff;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+        position: absolute;
+        top: 77px;
+        right: 2px;
+    }
+    .mobile-avatar-container img{
+        width: 40px;
+        margin-left: 32px;
+    }
+    .mobile-avatar-container img{
+        margin: 10px auto ;
+    }
+  }
